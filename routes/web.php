@@ -11,8 +11,9 @@
 |
 */
 Route::get('/login', 'UserController@login');
-
-Route::get('/', 'UserController@dashboard');
+Route::post('/doLogin', 'UserController@doLogin');
 Route::group(['middleware' => 'usersession'], function(){
+    Route::get('/', 'UserController@dashboard');
 });
+Route::get('/logout', 'UserController@logout');
 
